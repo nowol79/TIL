@@ -24,7 +24,7 @@
 ### cli
 
 
-## manages
+## manages object
 ### image
 ### container
 ### network
