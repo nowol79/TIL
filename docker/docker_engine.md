@@ -18,7 +18,8 @@
  - network
  
 ### api
- - client
+ - client - Docker CLI
+  - pull, run, build,... 
  - server
  
 ### cli
