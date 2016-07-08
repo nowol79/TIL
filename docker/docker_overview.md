@@ -27,6 +27,16 @@
 - docker container형태로 전달하고 배포할 수 있다. 
 - 개인별 독립된 production 환경뿐 아니라 local data center 및 cloud 환경으로도 배포 가능하다.
 
+# Docker를 통해서 뭘 할 수 있나?
+- 빠른 배포
+- 개발 혁신 
+  - 가령, mysql+php+apache 연동해서 웹어플리케이션을 만든다면, 일일이 패키지 설치 없이 docker 이미지를 가져와 run하면 끝
+  - 개발 작업도 docker container 형태로 진행하고 중간에 이를 그대로 commit으로 이미지를 만들어 놓으면 이후 해당 이미지를 받아 진행을 계속 할 수 있다. 
+  - 자신이 구축한 시스템을 docker로 제공하면 특별한 가이드 문서 없이 쉽게 전달 가능하다.
+- Deploying and scaling more easily
+  - 이미지만 제작해 놓으면 Docker cluster 환경에서 배포 및 스케일 아웃이 쉽게 가능하다. 
+  - 또한 docker container를 지원하는 data center, cloud, 및 물리 장비로 쉽게 배포 및 실행이 가능하다.
+
 
 
 
