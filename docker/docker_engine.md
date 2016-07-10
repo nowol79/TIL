@@ -50,5 +50,3 @@
 ### oci
 ### plugin
 
-
-참고 : http://prog3.com/sbdm/blog/shlazww/article/details/39188933
