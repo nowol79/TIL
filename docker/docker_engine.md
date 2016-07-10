@@ -1,3 +1,6 @@
+# Docker Total Architecture
+![docker_total_architecture](https://cloud.githubusercontent.com/assets/9585881/16713210/eab33898-46da-11e6-9052-7a8679c44478.PNG)
+
 # Docker Engine 구성
 ![docker_engine](https://cloud.githubusercontent.com/assets/9585881/16617978/d14d0058-43c1-11e6-8acb-5c694916a951.PNG)
 
