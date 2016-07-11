@@ -31,6 +31,13 @@ docker COMMAND가 Docker Client 동작이며, docker daemon이 데몬 즉 서버
 
 ## Docker daemon(server)
 - background 형태의 데몬으로 Docker Client 요청을 처리한다. 
+![docker-client](https://cloud.githubusercontent.com/assets/9585881/16717856/fef45c08-4755-11e6-837c-838024d24035.PNG)
+
+- Client 요청을 처리하기 위한 Docker http Server가 있다.
+- 사용자 요청별 job를 할당해서 처리를 한다. 
+### Docker Server
+Client 요청을 처리하기 위한 Http.Server, 요청을 스케쥴링하기 위한 Router, 실제 처리를 담당하는 Handler로 구성된다.
+![docker-engine](https://cloud.githubusercontent.com/assets/9585881/16718085/3dca2100-4757-11e6-8358-7f2d4251e432.PNG)
 
   - Client 요청을 처리
  - caps
