@@ -35,10 +35,51 @@ docker COMMAND가 Docker Client 동작이며, docker daemon이 데몬 즉 서버
 
 - Client 요청을 처리하기 위한 Docker http Server가 있다.
 - 사용자 요청별 job를 할당해서 처리를 한다. 
+
 ### Docker Server
 Client 요청을 처리하기 위한 Http.Server, 요청을 스케쥴링하기 위한 Router, 실제 처리를 담당하는 Handler로 구성된다.
 ![docker-engine](https://cloud.githubusercontent.com/assets/9585881/16718085/3dca2100-4757-11e6-8358-7f2d4251e432.PNG)
+- gorilla/mux에서 제공하는 mux.Router는 HTTP 요청 Method단위로 URL를 지정해 놓으면 해당 요청에 할당된 handler를 호출하는 구조로 Docker RESTful API를 처리하기 최적의 구조이다.
+```
+https://github.com/docker/docker/tree/master/api/server/server.go
 
+func createRouter(s *Server) *mux.Router {
+ ...
+ ...
+ m := map[string]map[string]HttpApiFunc {
+   "GET": {
+       "/_ping":                  s.ping,
+       "/events":                 s.getEvents,
+       "/info":                   s.getInfo,
+       "/images/json":            s.getImageJSON,
+       ...
+       ...
+       ...
+   },
+   "POST": {
+      "/auth":                    s.postAuth,
+      ...
+      "/images/create":           s.postBuild,
+      ...
+      
+      
+      ...
+      "/exec/{name:.*}/start":    s.postContainerExecStart,
+   },
+   "DELETE": {
+     "/containers/{name:.*}":     s.deleteContainers,
+     ... 
+   },
+   "OPTIONS": {
+      "":                         s.optionsHandler,
+   },
+}
+
+```
+   
+      
+
+```
   - Client 요청을 처리
  - caps
  - cluster
