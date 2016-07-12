@@ -17,7 +17,7 @@ Usage: docker [OPTIONS] COMMAND [arg...]
        docker daemon [ --help | ... ]
        docker [ --help | -v | --version ]
 ```
-docker COMMAND가 Docker Client 동작이며, docker daemon이 데몬 즉 서버역할을 한다. 
+``docker COMMAND```가 Docker Client 동작이며, ```docker daemon```이 Docker Daemon 즉 서버역할을 한다. 
 
 ## Docker Client
 - Docker daemon하고 통신한다.
@@ -76,10 +76,22 @@ func createRouter(s *Server) *mux.Router {
 }
 
 ```
-   
-      
+- http server에서 Client Docker로 부터 요청이 들어오면 새로운 goroutine를 생성하고 요청 content를 분석하여 routing해 준다. 처리가 가능한 handler를 배정하고 해당 handler이 요청을 처리하게 된다.
+- handle은 요청을 처리하기 위해 engine이 제공하는 여러가지 형태의 job를 활용하게 된다.
 
-```
+### Docker Engine
+- Docker의 Core 모듈이 모여있다. 
+   - Docker storage
+   - management container
+   - management register
+   - management driver
+- Engine은 여러개의 job들로 구성되며 job은 특정 동작을 실행하는 process로 보면 된다. 
+ - create a new container
+ - HTTP API processing 
+ - Reigster info procssing
+
+
+    
   - Client 요청을 처리
  - caps
  - cluster
