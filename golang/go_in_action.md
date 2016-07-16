@@ -4,6 +4,8 @@
 - [Erik St. Martin](https://github.com/erikstmartin)
 
 # 건더기
+- 이 책을 통해서 golang의 철학이 배우고 싶다. 왜.. 만들어 졌는지..어떤 목적으로 구글은 프로그래밍 언어를 다시 쓸 생각을 했는지..
+- 기존 언어로는 풀지 못하는 장벽이 있었을 듯..
 
 # 참고
 - [golang](https://golang.org)
