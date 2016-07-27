@@ -58,7 +58,12 @@
    - ```slice := make([]int, 0)``` or ```slice := []int{}``` 빈 정수 슬라이스
       - ```| 메모리주소 pointer | 0 - 길이 | 0 - 최대용량 |```
  - slice :=[]int{10,20,30,40,50}, newSlice := slice[1:3] 이걸 그림으로 나타낼 수 있어야 하는데, slice와 newSlice는 내부 5개자리 배열을 동일하게 참조한다. 다만 newSlice는 index 1부터 참조가 가능하고 길이는 2 용량은 4가 된다.
- -따라서 newSlice는 index [0]값을 접근할 방법이 없다. 또한 slice, newSlice가 내부 배열을 공유 하기 때문에 slice의 변경이 newSlice에도 영향을 준다는 거
+ - 따라서 newSlice는 index [0]값을 접근할 방법이 없다. 또한 slice, newSlice가 내부 배열을 공유 하기 때문에 slice의 변경이 newSlice에도 영향을 준다는 거
+ - append 함수를 이용해 slice의 길이와 용량 확장하기
+   ```slice := []int{10, 02, 30, 40}```
+   ```newSlice := append(slice, 50)```
+   - newslice 가 참조하는 내부 배열의 용량은 원래 크기의 두 배로 확장된다. 
+   - append함수는 내부 배열의 용량을 확장할 때 1000보다 작은 경우 용량의 두 배, 1000개를 넘어서면 25%씩 확장된다. 
 
 # 참고
 - [golang](https://golang.org)
