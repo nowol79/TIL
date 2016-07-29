@@ -74,6 +74,22 @@
     }
     ```
    slice 반복문 range 키워드는 index, value 두 개 값 리턴, 중요한 것은 range 키워드가 레퍼런스값을 전달 하는게 아니고 복사본을 생성한다. 
+   ```
+   slice := []int{10, 20, 30, 40, 50}
+   for index, value := range slice {
+                fmt.Printf("value:%d address value: %x slice address: %x\n",
+                        value, &value, &slice[index])
+        }
+   $ ./main
+   value:10 address value: c82000a308 slice address: c82000e2a0
+   value:20 address value: c82000a308 slice address: c82000e2a8
+   value:30 address value: c82000a308 slice address: c82000e2b0
+   value:40 address value: c82000a308 slice address: c82000e2b8
+   value:50 address value: c82000a308 slice address: c82000e2c0
+
+   ```
+   예제에서 보면, range를 통해서 가져온 value의 값은 변해도 주소는 동일하다. 즉, ```index|value```로 구성된 range에 값과 인덱스를 복사해 넣는 것이다. 또한 value의 주소는 slice의 주소와는 별개로 따른 공간에 복사를 하는 것을 알 수 있다. 
+  
 # 참고
 - [golang](https://golang.org)
 - [gopheracademy blog](https://blog.gopheracademy.com/)
