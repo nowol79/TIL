@@ -29,6 +29,7 @@
    ```
    type AAA struct {}
    ```
+
 ## 2장
 - RSS search 소스코드 분석을 통한 go 언어 
 
@@ -64,7 +65,15 @@
    ```newSlice := append(slice, 50)```
    - newslice 가 참조하는 내부 배열의 용량은 원래 크기의 두 배로 확장된다. 
    - append함수는 내부 배열의 용량을 확장할 때 1000보다 작은 경우 용량의 두 배, 1000개를 넘어서면 25%씩 확장된다. 
-
+ - for range 키워드를 이용해서 슬라이스 반복하기
+    ```
+    slice := []int{10,20,30,40}
+    
+    for index, value := range slice {
+      fmt.Printf("인덱스: %d 값: %d\n", index, value)
+    }
+    ```
+   slice 반복문 range 키워드는 index, value 두 개 값 리턴, 중요한 것은 range 키워드가 레퍼런스값을 전달 하는게 아니고 복사본을 생성한다. 
 # 참고
 - [golang](https://golang.org)
 - [gopheracademy blog](https://blog.gopheracademy.com/)
