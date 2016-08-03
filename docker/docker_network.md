@@ -64,7 +64,7 @@ veth5da6899 Link encap:Ethernet  HWaddr 32:68:FF:1F:51:B3
 
  ```
  - ip link 상태를 보면 container의 virtual network interface가 docker0에 바인딩 된 것을 확인할 수 있다.
- ```
+```
  host # ip link
  1: lo: ....
  2: bond0: ....
@@ -84,17 +84,19 @@ veth5da6899 Link encap:Ethernet  HWaddr 32:68:FF:1F:51:B3
     link/ether fe:1a:aa:48:5c:14 brd ff:ff:ff:ff:ff:ff
  49: vethcc09590@if48: <BROADCAST,MULTICAST,UP,LOWER_UP,M-DOWN> mtu 1500 qdisc noqueue master docker0 state UP
     link/ether 0e:15:0d:69:21:15 brd ff:ff:ff:ff:ff:ff
- ```
+
+```
+
  - vethXXX로 구성된 네트워크 링크들이 docker0를 master로 up된 것을 확인할 수 있다.
  - 또한 docker0 bridge 상태를 보면 vethXXX가 생성된 것을 확인 할 수 있다.
- ```
+```
  host # brctl show docker0
  bridge name     bridge id               STP enabled     interfaces
  docker0         8000.02420820d143       no              vethd8428d0
                                                          vethe781d3e
                                                          vethe462539
                                                          vethcc09590
- ```
+```
  - virtual network interface와 pair로 docker-proxy도 생성이 된다. 
 ```
 host $ ps -elf | grep docker-proxy
@@ -133,14 +135,14 @@ eth0      Link encap:Ethernet  HWaddr 02:42:AC:11:00:06
           TX packets:701281173 errors:0 dropped:0 overruns:0 carrier:0
           collisions:0 txqueuelen:0
           RX bytes:94516537032 (88.0 GiB)  TX bytes:84013167602 (78.2 GiB)
- ```
+```
 - container 내부 route 상태를 보면 docker0의 IP가 gateway로 잡혀있는 것을 확인해 볼 수 있다. 
 ```
-# docker exec a7ca7ffc2143 route
-Kernel IP routing table
-Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
-default         172.17.0.1      0.0.0.0         UG    0      0        0 eth0
-172.17.0.0      *               255.255.0.0     U     0      0        0 eth0
+ # docker exec a7ca7ffc2143 route
+ Kernel IP routing table
+ Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+ default         172.17.0.1      0.0.0.0         UG    0      0        0 eth0
+ 172.17.0.0      *               255.255.0.0     U     0      0        0 eth0
 ```
 
 ## docker swarm mode network 구조 (default 설정)
