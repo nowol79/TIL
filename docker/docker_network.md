@@ -145,5 +145,5 @@ eth0      Link encap:Ethernet  HWaddr 02:42:AC:11:00:06
  172.17.0.0      *               255.255.0.0     U     0      0        0 eth0
 ```
 
-## docker swarm mode network 구조 (default 설정)
+## docker swarm mode network 구조 
 
