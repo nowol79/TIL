@@ -2,7 +2,7 @@
 golang vim plugin 
 
 # vim-go 설치
-    ```
+    
     # vim-go bundle 다운로드
     $ cd ~/.vimrc/bundle
     $ git clone https://github.com/fatih/vim-go.git
@@ -14,6 +14,6 @@ golang vim plugin
     # 플러그인 설치
     $ vim 
     :PluginInstall
-    ```
+    
 
 # 사용방법
