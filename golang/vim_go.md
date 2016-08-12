@@ -16,4 +16,13 @@ golang vim plugin
     :PluginInstall
     
 
-# 사용방법
+# vim-go Hello World!!
+ - Run it
+    ```
+    :GoRun
+    ```
+
+ - Build it
+
+     ```:GoBuild```
+
