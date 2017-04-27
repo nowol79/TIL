@@ -2,9 +2,9 @@ docker daemon이 `D`상태로 얼어있는 경우가 있었다. 이 때 /proc/sy
 
 ```
 # ps OT -Leo state,pid,lwp,cmd,wchan | grep ^D
-D  2758  2895 dockerd --graph=/naver/dock rtnetlink_rcv
-D  2758  2961 dockerd --graph=/naver/dock rcu_barrier
-D  2758  9927 dockerd --graph=/naver/dock rtnetlink_rcv
+D  2758  2895 dockerd --graph=/work/dock rtnetlink_rcv
+D  2758  2961 dockerd --graph=/work/dock rcu_barrier
+D  2758  9927 dockerd --graph=/work/dock rtnetlink_rcv
 ```
 
 이 때 `w` key를 보내면 blocked state를 확인해 볼 수 있다. 
